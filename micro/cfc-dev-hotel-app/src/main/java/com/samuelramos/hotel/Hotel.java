@@ -1,4 +1,4 @@
-package org.samuelramos.hotel;
+package com.samuelramos.hotel;
 
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
