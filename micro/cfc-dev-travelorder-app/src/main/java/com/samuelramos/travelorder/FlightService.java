@@ -10,7 +10,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
-@RegisterRestClient(baseUri = "htp://localhost:8081/flight")
+@RegisterRestClient(baseUri = "http://localhost:8081/flight")
 public interface FlightService {
 
     @GET

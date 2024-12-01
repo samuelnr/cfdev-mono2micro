@@ -1,5 +1,8 @@
 package com.samuelramos.travelorder;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import jakarta.inject.Inject;
@@ -24,6 +27,19 @@ public class TravelOrderController {
     @Inject
     @RestClient
     HotelService hotelService;
+
+        @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<TravelOrderDTO> orders() {
+ 
+        return TravelOrder.<TravelOrder>listAll().stream()
+            .map(travelOrder -> TravelOrderDTO.of(
+                                    travelOrder , 
+                                    flightService.findByTravelOrderId(travelOrder.id) ,
+                                    hotelService.findByTravelOrderId(travelOrder.id) )
+            ).collect(Collectors.toList());
+
+    }
 
 
     @GET

@@ -17,6 +17,4 @@ public class HotelDTO {
     public void setNights(Integer nights) {
         this.nights = nights;
     }
-
-    
-}
+ }
