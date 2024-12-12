@@ -21,7 +21,7 @@ public class FlightController {
     }
 
     @GET
-    @Path("findbyId")
+    @Path("findById")
     @Produces(MediaType.APPLICATION_JSON)
     public Flight findById(@QueryParam("id") long id) {
         return Flight.findById(id);
@@ -30,7 +30,8 @@ public class FlightController {
     @GET
     @Path("findByTravelOrderId")
     @Produces(MediaType.APPLICATION_JSON)
-    public Flight findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+    public Flight findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) throws InterruptedException {
+        Thread.sleep(3000);
         return Flight.findByTravelOrderId(travelOrderId);
     }
 
@@ -45,3 +46,4 @@ public class FlightController {
     }
 
 }
+

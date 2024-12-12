@@ -31,7 +31,8 @@ public class HotelController {
     @GET
     @Path("findByTravelOrderId")
     @Produces(MediaType.APPLICATION_JSON)
-    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) throws Exception {
+        //Thread.sleep(3000);
         return Hotel.findByTravelOrderId(travelOrderId);
     }
 

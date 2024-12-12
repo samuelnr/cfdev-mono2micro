@@ -68,3 +68,4 @@ Easily start your Reactive RESTful Web Services
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
 
 ./mvnw compile quarkus:dev
+./mvnw quarkus:add-extension Dextension="quarkus-smallrye-health"

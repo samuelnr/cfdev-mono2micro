@@ -2,6 +2,13 @@ package com.samuelramos.travelorder;
 
 public class TravelOrderDTO {
 
+    private String fromAirport;
+    private String toAirport;
+    private Integer nights;
+    private long id;
+
+    
+
     public String getFromAirport() {
         return fromAirport;
     }
@@ -26,11 +33,10 @@ public class TravelOrderDTO {
         this.nights = nights;
     }
 
-    private String fromAirport;
-    private String toAirport;
-    private Integer nights;
 
-    private TravelOrderDTO(String fromAirport , String toAirport, Integer nights) {
+
+    private TravelOrderDTO(long travelOrderId , String fromAirport , String toAirport, Integer nights) {
+        this.id = travelOrderId;
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
         this.nights = nights;
@@ -50,11 +56,19 @@ public class TravelOrderDTO {
             hotel = new HotelDTO();
         }
 
-        return new TravelOrderDTO(flight.getFromAirport(), flight.getToAirport(), hotel.getNights());
+        return new TravelOrderDTO(order.id , flight.getFromAirport(), flight.getToAirport(), hotel.getNights());
     }
 
-    public static TravelOrderDTO of(String fromAirport, String toAirport, Integer nights) {
-        return new TravelOrderDTO(fromAirport, toAirport, nights);
+    public static TravelOrderDTO of(long travelOrderId , String fromAirport, String toAirport, Integer nights) {
+        return new TravelOrderDTO(travelOrderId , fromAirport, toAirport, nights);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
 }
