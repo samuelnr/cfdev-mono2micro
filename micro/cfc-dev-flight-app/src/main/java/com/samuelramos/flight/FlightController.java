@@ -31,7 +31,6 @@ public class FlightController {
     @Path("findByTravelOrderId")
     @Produces(MediaType.APPLICATION_JSON)
     public Flight findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) throws InterruptedException {
-        Thread.sleep(3000);
         return Flight.findByTravelOrderId(travelOrderId);
     }
 
